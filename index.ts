@@ -1,4 +1,4 @@
-type Dictionary = Map<string, string>;
+type Dictionary = Map<number, number>;
 
 const MAPPING: [string, string][] = [
   ['`', 'ё'],
@@ -84,13 +84,27 @@ const MAPPING: [string, string][] = [
   ['?', ','],
 ];
 
-const LAT_TO_CYR_MAP: Dictionary = new Map(MAPPING);
+const toCharCodes = ([s1, s2]: [string, string]): [number, number] => [
+  s1.charCodeAt(0), s2.charCodeAt(0)
+];
+
+const LAT_TO_CYR_MAP: Dictionary = new Map(MAPPING.map(toCharCodes));
 const CYR_TO_LAT_MAP: Dictionary = new Map(
-  MAPPING.map(([lat, cyr]) => [cyr, lat])
+  MAPPING.map(([lat, cyr]) => [cyr, lat]).map(toCharCodes)
 );
 
-const convert = (dMap: Dictionary) => (foo: string): string =>
-  foo.replace(/\S{1}/g, ch => dMap.get(ch) || ch);
+console.log(MAPPING.map(toCharCodes));
 
+const convert = (dMap: Dictionary) => (foo: string): string => {
+  const len = foo.length;
+  let res = '';
+
+  for (let i = 0; i < len; i += 1) {
+    const code = foo.charCodeAt(i);
+    res += String.fromCharCode(dMap.get(code) || code);
+  }
+
+  return res;
+};
 export const convertLatToCyr = convert(LAT_TO_CYR_MAP);
 export const convertCyrToLat = convert(CYR_TO_LAT_MAP);
