@@ -1,10 +1,14 @@
 {
   "name": "cyr_2_lat_qwerty",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Text conversion back and forth between latin and cyrillic keyboard layouts (qwerty assumed).",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "browser": "dist/index-iife.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "Ivan Kondratyev <ivanbright@gmail.com>",
   "license": "MIT",
   "type": "module",
@@ -12,6 +16,10 @@
   "scripts": {
     "build": "rollup -c",
     "test": "env TS_NODE_PROJECT=\"testing.tsconfig.json\" mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MostFrumiousBandersnatch/cyr2lat.git"
   },
   "devDependencies": {
     "@types/mocha": "^8.2.0",
