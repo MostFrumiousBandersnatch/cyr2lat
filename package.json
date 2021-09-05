@@ -15,13 +15,15 @@
   "private": false,
   "scripts": {
     "build": "rollup -c",
-    "test": "env TS_NODE_PROJECT=\"testing.tsconfig.json\" mocha"
+    "test": "env TS_NODE_PROJECT=\"testing.tsconfig.json\" mocha",
+    "bench": "node perf-test.js"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:MostFrumiousBandersnatch/cyr2lat.git"
   },
   "devDependencies": {
+    "@types/assert": "^1.5.3",
     "@types/mocha": "^8.2.0",
     "mocha": "^8.2.1",
     "rollup": "^2.36.2",
@@ -29,8 +31,5 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
-  },
-  "dependencies": {
-    "@types/assert": "^1.5.3"
   }
 }

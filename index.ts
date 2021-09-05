@@ -93,8 +93,6 @@ const CYR_TO_LAT_MAP: Dictionary = new Map(
   MAPPING.map(([lat, cyr]) => [cyr, lat]).map(toCharCodes)
 );
 
-console.log(MAPPING.map(toCharCodes));
-
 const convert = (dMap: Dictionary) => (foo: string): string => {
   const len = foo.length;
   let res = '';

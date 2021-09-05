@@ -1,0 +1,22 @@
+[package]
+name = "cyr_2_lat_qwerty"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "cyr_2_lat_qwerty"
+test = true            # Is tested by default.
+bench = true           # Is benchmarked by default.
+proc-macro = false  
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+lazy_static = "1.4.0"
+
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+wasm-bindgen-test = "0.3.26"
+
+[patch.crates-io]
+cyr_2_lat_qwerty = { path = '.' }

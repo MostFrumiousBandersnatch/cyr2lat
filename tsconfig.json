@@ -3,7 +3,7 @@
     "module": "ES6",
     "target": "es2015",
     "lib": ["ESNext"],
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
     "inlineSourceMap": true,
